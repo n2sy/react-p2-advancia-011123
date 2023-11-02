@@ -27,6 +27,11 @@ function App() {
         "Dom Cobb est un voleur expérimenté dans l'art périlleux de `l'extraction' : sa spécialité consiste à s'approprier les secrets les plus précieux d'un individu, enfouis au plus profond de son subconscient, pendant qu'il rêve et que son esprit est particulièrement vulnérable. Très recherché pour ses...",
     },
   ];
+
+  function addFilm(nFilm) {
+    FAKE_LIST_FILMS.push(nFilm);
+    console.log(FAKE_LIST_FILMS);
+  }
   return (
     <div>
       <Navbar></Navbar>
@@ -36,7 +41,10 @@ function App() {
           path="all"
           element={<Allfilms list={FAKE_LIST_FILMS}></Allfilms>}
         ></Route>
-        <Route path="add/new" element={<AddNewFilm></AddNewFilm>}></Route>
+        <Route
+          path="add/new"
+          element={<AddNewFilm onAdd={addFilm}></AddNewFilm>}
+        ></Route>
         <Route path="fav" element={<Favorites></Favorites>}></Route>
       </Routes>
     </div>
