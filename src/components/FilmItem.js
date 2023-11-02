@@ -1,8 +1,14 @@
-import React from "react";
+import React, { useContext } from "react";
 import styles from "./FilmItem.module.css";
 import Card from "./Card";
+import FavContext from "../store/FavouritesContext";
 
 function FilmItem(props) {
+  const favCtx = useContext(FavContext);
+
+  function addToFavourites() {
+    favCtx.addFavourite(props.film);
+  }
   return (
     <li className={styles.item}>
       <Card>
@@ -15,7 +21,7 @@ function FilmItem(props) {
           <p> {props.film.description} </p>
         </div>
         <div className={styles.actions}>
-          <button>To Favourites</button>
+          <button onClick={addToFavourites}>To Favourites</button>
         </div>
       </Card>
     </li>
