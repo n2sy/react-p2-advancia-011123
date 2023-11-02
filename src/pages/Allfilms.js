@@ -6,9 +6,7 @@ function Allfilms(props) {
     <div>
       <ol>
         {props.list.map((element) => {
-          return (
-            <FilmItem title={element.title} year={element.year}></FilmItem>
-          );
+          return <FilmItem key={element.id} film={element}></FilmItem>;
         })}
       </ol>
     </div>
