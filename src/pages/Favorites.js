@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import FavContext from "../store/FavouritesContext";
 import FilmItem from "../components/FilmItem";
+import FilmList from "../components/FilmList";
 
 function Favorites() {
   const favCtx = useContext(FavContext);
@@ -8,14 +9,7 @@ function Favorites() {
 
   console.log(favCtx.totalFav);
   if (!favCtx.totalFav) return <h3>You don't have favourites yet...</h3>;
-  else
-    return (
-      <ol>
-        {favCtx.favourites.map((element) => {
-          return <FilmItem key={element.id} film={element}></FilmItem>;
-        })}
-      </ol>
-    );
+  else return <FilmList tabFilms={favCtx.favourites}></FilmList>;
 }
 
 export default Favorites;

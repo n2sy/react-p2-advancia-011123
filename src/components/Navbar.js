@@ -1,10 +1,12 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
 import styles from "./navbar.module.css";
+import FavContext from "../store/FavouritesContext";
 
 function Navbar() {
   let activeStyle = { textDecoration: "overline" };
   let inactiveStyle = { textDecoration: "underline" };
+  const favCtx = useContext(FavContext);
   return (
     <header className={styles.header}>
       <div className={styles.logo}>Film Shop</div>
@@ -34,6 +36,7 @@ function Navbar() {
               to="/fav"
             >
               Favourites
+              <span class="badge bg-secondary">{favCtx.totalFav}</span>
             </NavLink>
           </li>
         </ul>

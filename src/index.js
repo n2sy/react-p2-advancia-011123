@@ -8,11 +8,11 @@ import { FavouriteContexteProvider } from "./store/FavouritesContext";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  <BrowserRouter>
-    <FavouriteContexteProvider>
+  <FavouriteContexteProvider>
+    <BrowserRouter>
       <App />
-    </FavouriteContexteProvider>
-  </BrowserRouter>
+    </BrowserRouter>
+  </FavouriteContexteProvider>
 );
 
 // If you want to start measuring performance in your app, pass a function

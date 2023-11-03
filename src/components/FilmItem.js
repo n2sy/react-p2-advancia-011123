@@ -6,6 +6,7 @@ import FavContext from "../store/FavouritesContext";
 function FilmItem(props) {
   const favCtx = useContext(FavContext);
 
+  let isFav = favCtx.isFavourite(props.film.id);
   function favouriteHandler() {
     if (!favCtx.isFavourite(props.film.id)) favCtx.addFavourite(props.film);
     else favCtx.removeFavourite(props.film);
@@ -24,9 +25,7 @@ function FilmItem(props) {
         </div>
         <div className={styles.actions}>
           <button onClick={favouriteHandler}>
-            {favCtx.isFavourite(props.film.id)
-              ? "Remove from Favourites"
-              : "To Favourites"}
+            {isFav ? "Remove from Favourites" : "To Favourites"}
           </button>
         </div>
       </Card>

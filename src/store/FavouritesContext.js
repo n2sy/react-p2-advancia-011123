@@ -21,7 +21,7 @@ export function FavouriteContexteProvider(props) {
       let i = previous.indexOf(film);
       previous.splice(i, 1);
       console.log("Dans remove Context", previous.length);
-      return previous;
+      return [...previous];
     });
   }
   function isFavouriteNj(id) {
