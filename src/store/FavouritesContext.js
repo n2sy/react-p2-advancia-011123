@@ -19,7 +19,9 @@ export function FavouriteContexteProvider(props) {
   function removeFavouriteNj(film) {
     setTabFav((previous) => {
       let i = previous.indexOf(film);
-      return previous.splice(i, 1);
+      previous.splice(i, 1);
+      console.log("Dans remove Context", previous.length);
+      return previous;
     });
   }
   function isFavouriteNj(id) {

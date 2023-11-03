@@ -6,13 +6,16 @@ function Favorites() {
   const favCtx = useContext(FavContext);
   console.log(favCtx);
 
-  return (
-    <ol>
-      {favCtx.favourites.map((element) => {
-        return <FilmItem film={element}></FilmItem>;
-      })}
-    </ol>
-  );
+  console.log(favCtx.totalFav);
+  if (!favCtx.totalFav) return <h3>You don't have favourites yet...</h3>;
+  else
+    return (
+      <ol>
+        {favCtx.favourites.map((element) => {
+          return <FilmItem key={element.id} film={element}></FilmItem>;
+        })}
+      </ol>
+    );
 }
 
 export default Favorites;

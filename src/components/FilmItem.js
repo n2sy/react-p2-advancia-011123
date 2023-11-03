@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import styles from "./FilmItem.module.css";
 import Card from "./Card";
 import FavContext from "../store/FavouritesContext";
@@ -6,9 +6,11 @@ import FavContext from "../store/FavouritesContext";
 function FilmItem(props) {
   const favCtx = useContext(FavContext);
 
-  function addToFavourites() {
-    favCtx.addFavourite(props.film);
+  function favouriteHandler() {
+    if (!favCtx.isFavourite(props.film.id)) favCtx.addFavourite(props.film);
+    else favCtx.removeFavourite(props.film);
   }
+
   return (
     <li className={styles.item}>
       <Card>
@@ -21,7 +23,11 @@ function FilmItem(props) {
           <p> {props.film.description} </p>
         </div>
         <div className={styles.actions}>
-          <button onClick={addToFavourites}>To Favourites</button>
+          <button onClick={favouriteHandler}>
+            {favCtx.isFavourite(props.film.id)
+              ? "Remove from Favourites"
+              : "To Favourites"}
+          </button>
         </div>
       </Card>
     </li>

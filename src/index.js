@@ -9,7 +9,9 @@ import { FavouriteContexteProvider } from "./store/FavouritesContext";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <BrowserRouter>
-    <App />
+    <FavouriteContexteProvider>
+      <App />
+    </FavouriteContexteProvider>
   </BrowserRouter>
 );
 
