@@ -5,13 +5,16 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter } from "react-router-dom";
 import { FavouriteContexteProvider } from "./store/FavouritesContext";
+import { LoginContextProvider } from "./store/LoginContext";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <FavouriteContexteProvider>
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>
+    <LoginContextProvider>
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
+    </LoginContextProvider>
   </FavouriteContexteProvider>
 );
 
